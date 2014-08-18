@@ -18,27 +18,20 @@ class Unhash
   private
 
   def _unhash(hash, index, seed)
-    each_position do |pos|
-      if index.zero? && first_hash?(hash, pos)
-        add_position(pos)
-        return true
-      else
-        return true if add_position_for_correct_hash(hash, index, pos, seed)
-      end
-    end
+    res = each_position do |pos|
+      next unless correct_hash?(hash, pos, index, seed)
 
-    false
-  end
+      add_position(pos)
+      break true
+    end || false
 
-  def add_position_for_correct_hash(hash, index, position, seed)
-    return false unless correct_hash?(hash, position, index, seed)
-
-    add_position(position)
-    position
+    res
   end
 
   def correct_hash?(hash, position, index, seed)
     previous_hash = calc_hash(hash, position)
+
+    return true if index.zero? && @seed.to_f == previous_hash
 
     previous_hash.to_i == previous_hash &&
       _unhash(previous_hash, index - 1, seed)
