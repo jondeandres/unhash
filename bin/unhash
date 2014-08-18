@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+
+$:.unshift(File.expand_path('../../lib', __FILE__))
+require 'unhash'
+
+hash = ARGV[0].to_i
+length = ARGV[1].to_i
+letters = 'acdegilmnoprstuw'
+seed = 7
+unhasher = Unhash.new(letters, seed)
+
+unhasher.unhash!(hash, length)
+p unhasher.value
