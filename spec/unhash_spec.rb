@@ -2,9 +2,8 @@ require 'unhash'
 
 describe Unhash do
   let(:letters) { 'acdegilmnoprstuw' }
-  let(:seed) { 7 }
 
-  subject { described_class.new(letters, seed) }
+  subject { described_class.new(letters) }
 
   describe '#unhash!' do
     let(:hash) { 680_131_659_347 }

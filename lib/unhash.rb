@@ -1,9 +1,9 @@
 class Unhash
   attr_reader :letters, :seed
 
-  def initialize(letters, seed)
+  def initialize(letters)
     @letters = letters
-    @seed = seed
+    @seed = 7
     @value = []
   end
 

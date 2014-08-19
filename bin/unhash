@@ -6,8 +6,7 @@ require 'unhash'
 hash = ARGV[0].to_i
 length = ARGV[1].to_i
 letters = 'acdegilmnoprstuw'
-seed = 7
-unhasher = Unhash.new(letters, seed)
+unhasher = Unhash.new(letters)
 
 unhasher.unhash!(hash, length)
 p unhasher.value
