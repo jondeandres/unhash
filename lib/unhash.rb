@@ -32,6 +32,7 @@ class Unhash
     previous_hash = calc_hash(hash, position)
 
     return true if index.zero? && @seed.to_f == previous_hash
+    return false if index.zero?
 
     previous_hash.to_i == previous_hash &&
       _unhash(previous_hash, index - 1, seed)
