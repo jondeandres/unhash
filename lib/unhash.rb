@@ -42,10 +42,6 @@ class Unhash
     @value << @letters[position]
   end
 
-  def first_hash?(hash, position)
-    @seed.to_f == calc_hash(hash, position)
-  end
-
   def calc_hash(hash, position)
     (hash - position) / 37.to_f
   end
